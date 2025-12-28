@@ -1,0 +1,31 @@
+return {
+  -- The plugin repository with the required 'build' step
+  {
+    "mistricky/codesnap.nvim",
+    -- The 'build' instruction is necessary because the plugin
+    -- uses Rust to compile a generator module.
+    build = "make build_generator",
+    -- Recommended: Add a lazy-loading event
+    event = "VeryLazy",
+
+    -- Optional: Add keymaps for easy access (using 'x' mode for visual selection)
+    keys = {
+      {
+        "<leader>ci",
+        "<Esc><cmd>CodeSnap<cr>",
+        mode = "x",
+        desc = "Save selected code snapshot into clipboard",
+      },
+      {
+        "<leader>co",
+        "<Esc><cmd>CodeSnapSave<cr>",
+        mode = "x",
+        desc = "Save selected code snapshot in ~/Snaps/",
+      },
+    },
+    -- Optional: Add configuration options
+    opts = {
+      save_path = "~/Snaps", -- Change this to your preferred save path
+    },
+  },
+}

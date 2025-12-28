@@ -16,6 +16,12 @@ keymap.set("n", "<leader>si", "<cmd>IconPickerInsert nerd_font<cr>")
 keymap.set("n", "<leader>sy", "<cmd>IconPickerInsert emoji<cr>")
 keymap.set("n", "<leader>sI", "<cmd>IconPickerInsert symbols<cr>")
 
+-- GoImpl
+keymap.set("n", "<leader>ci", function()
+  local iface = vim.fn.input("var Receiver Interface: ")
+  vim.cmd("GoImpl " .. iface)
+end, { desc = "Generate Go interface implementation" })
+
 -- Mover línea hacia abajo con Alt + j en modo normal
 keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, silent = true })
 -- Mover línea hacia arriba con Alt + k en modo normal
@@ -62,6 +68,17 @@ keymap.set("n", "<leader>du", ":DBUI<cr>")
 keymap.set("n", "<leader>dt", ":DBUIToggle<cr>")
 keymap.set("n", "<leader>da", ":DBUIAddConnection<cr>")
 keymap.set("n", "<leader>df", ":DBUIFindBuffer<cr>")
+
+-- Makeit
+keymap.set("n", "<leader>mo", ":MakeitOpen<cr>")
+keymap.set("n", "<leader>mt", ":MakeitToggleResults<cr>")
+keymap.set("n", "<leader>mr", ":MakeitRedo<cr>")
+
+-- Vim Test
+keymap.set("n", "<leader>tn", ":TestNearest<cr>")
+keymap.set("n", "<leader>tf", ":TestFile<cr>")
+keymap.set("n", "<leader>ts", ":TestSuite<cr>")
+keymap.set("n", "<leader>tv", ":TestVisit<cr>")
 
 -- ToggleTerm
 keymap.set("n", "<leader>T", "ToggleTerm", { noremap = true, desc = "ToggleTerm" })

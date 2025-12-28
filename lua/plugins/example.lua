@@ -28,7 +28,7 @@ return {
   },
 
   -- disable trouble
-  { "folke/trouble.nvim",      enabled = false },
+  { "folke/trouble.nvim", enabled = false },
 
   -- override nvim-cmp and add cmp-emoji
   {
@@ -94,7 +94,20 @@ return {
       ---@type lspconfig.options
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig
-        tsserver = {},
+        tsserver = {
+          settings = {
+            typescript = {
+              preferences = {
+                importModuleSpecifierPreference = "non-relative",
+              },
+            },
+            javascript = {
+              preferences = {
+                importModuleSpecifierPreference = "non-relative",
+              },
+            },
+          },
+        },
       },
       -- you can do any additional lsp server setup here
       -- return true if you don't want this server to be setup with lspconfig
@@ -122,14 +135,17 @@ return {
       ensure_installed = {
         "bash",
         "html",
-        "javascript",
-        "json",
+        -- "javascript",
+        -- "json",
         "lua",
-        "markdown",
-        "markdown_inline",
-        "regex",
-        "tsx",
-        "typescript",
+        -- "markdown",
+        -- "markdown_inline",
+        -- "regex",
+        -- "tsx",
+        -- "typescript",
+      },
+      highlight = {
+        disable = { "sql" },
       },
     },
   },
@@ -184,9 +200,7 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
-        "shellcheck",
         "shfmt",
-        "flake8",
       },
     },
   },
